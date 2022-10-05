@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     android:background="#534747"
+    tools:context=".ThankYou">
+
+
+    <ImageView
+        android:layout_width="266dp"
+        android:layout_height="121dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/splashlogo" />
+    <TextView
+        android:id="@+id/invoice"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Invoice No :-  "
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lin1"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="2dp"
+                android:text="Start Date and Time"
+                android:textColor="#fff"
+                android:textSize="13sp" />
+
+
+            <LinearLayout
+                android:id="@+id/lin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView3"
+                android:layout_marginLeft="8dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:tint="#fff"
+                    app:srcCompat="@drawable/calender" />
+
+                <TextView
+                    android:id="@+id/startdate"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:padding="2dp"
+                    android:text="10/12/2020"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/starttime"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:hint="9:00 AM"
+                    android:padding="2dp"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lin1"
+                android:layout_alignRight="@+id/textView3"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="2dp"
+                android:text="End Date and Time"
+                android:textColor="#fff"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:id="@+id/lin3"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"
+                    android:tint="#fff"
+                    app:srcCompat="@drawable/calender" />
+
+                <TextView
+                    android:id="@+id/enddate"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+
+                    android:padding="2dp"
+                    android:text="10/12/2020"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/endtime"
+                    android:layout_width="68dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="clip_horizontal"
+                    android:hint="9:00 AM"
+
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+
+        android:text="Thank You"
+        android:textColor="#9CCC65"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+
+        android:text=" For Booking With Us "
+        android:textColor="#9CCC65"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+
+    <TextView
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_file_download"
+        android:onClick="downloadInvoice"
+        android:padding="12dp"
+        android:background="@drawable/redbutton"
+        android:layout_marginTop="40dp"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Download Invoice"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fff"
+        android:textStyle="bold"/>
+
+
+
+</LinearLayout>

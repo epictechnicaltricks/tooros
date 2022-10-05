@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp">
+
+    <LinearLayout
+        android:id="@+id/bg"
+        android:background="#bdbdbd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="20dp"
+
+        android:text="Start Date and Time"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerInside"
+            android:tint="#fff"
+            app:srcCompat="@drawable/calender" />
+
+        <TextView
+            android:id="@+id/startdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="3dp"
+            android:hint="10/12/2020 9:00 AM"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36sp"
+        android:layout_marginTop="5dp"
+        android:text="End Date and Time"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerInside"
+            android:tint="#fff"
+            app:srcCompat="@drawable/calender" />
+
+        <TextView
+            android:id="@+id/enddate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="3dp"
+            android:hint="10/11/2020 9:00 AM"
+            android:textColor="#fff" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/endtime"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal|center_vertical"-->
+<!--            android:layout_marginLeft="2dp"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="9:00 AM"-->
+<!--            android:textColor="#fff" />-->
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:id="@+id/invoicedownload"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Invoice"
+                android:textSize="15sp"
+                android:background="@drawable/redbutton"
+                android:drawableLeft="@drawable/ic_file_download"/>
+
+            <Button
+                android:visibility="gone"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:id="@+id/extend"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="  Extend Booking"
+                android:textSize="15sp"
+                android:background="@drawable/redbutton3"
+                android:drawableLeft="@drawable/plus_fff"/>
+
+<!--
+
+            <Button
+                 android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:id="@+id/extend"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Extend Booking"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:background="#000"
+                android:drawableLeft="@drawable/plus2"/>
+
+
+-->
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <!--        <ImageView-->
+
+            <!--            android:layout_width="100dp"-->
+            <!--            android:layout_gravity="center_horizontal"-->
+            <!--            android:layout_height="80dp"-->
+            <!--            android:scaleType="fitXY"-->
+            <!--            android:src="@drawable/carbooking"/>-->
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:text="Renault KWID 1.0 AT (2020)"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="horizontal">-->
+
+            <TextView
+
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="₹ "
+                android:textColor="#F1D30B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <!--        </LinearLayout>-->
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

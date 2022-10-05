@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+
+    tools:context=".CitySelectionActivity">
+<!--    tools:openDrawer="start"-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_gravity="start"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        app:headerLayout="@layout/navheader"
+        app:menu="@menu/nav_menu"
+        app:navigationIcon="@drawable/navicon2"/>
+
+
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#534747">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#3D3D3D"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:navigationIcon="@drawable/navicon2">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <!--                    <ImageView-->
+                    <!--                        android:layout_width="30dp"-->
+                    <!--                        android:layout_height="match_parent"-->
+                    <!--                        android:src="@drawable/navicon2"/>-->
+
+                    <ImageView
+                        android:layout_alignParentStart="true"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:src="@drawable/splashlogo" />
+
+                </RelativeLayout>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <LinearLayout
+
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:background="@drawable/backgroung"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:drawableStart="@drawable/cariconsmall"
+                    android:drawablePadding="10dp"
+                    android:text="Search Your Best Vehicle"
+                    android:textColor="@android:color/white"
+                    android:textSize="20dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/shapewhitebackground">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/location" />
+
+                    <Spinner
+                        android:id="@+id/select_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+
+
+                        />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/shapewhitebackground">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/location" />
+
+                    <Spinner
+                        android:id="@+id/district"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:spinnerMode="dropdown"
+                        android:textAlignment="viewStart" />
+
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shapewhitebackground"
+                        android:gravity="center_vertical"
+                        android:onClick="onClickStartDate"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:src="@drawable/calender" />
+
+                        <TextView
+                            android:id="@+id/startDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center_vertical"
+                            android:text="Select Start Date"
+                            android:textColor="@android:color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shapewhitebackground"
+                        android:onClick="onClickEndDate">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="8dp"
+                            android:src="@drawable/calender" />
+
+                        <TextView
+                            android:id="@+id/endDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center_vertical"
+
+                            android:text="Select End Date"
+                            android:textColor="@android:color/black" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shapewhitebackground"
+                        android:gravity="center_vertical"
+                        android:onClick="starttime"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            app:srcCompat="@drawable/ic_access_time_black_24dp" />
+
+                        <TextView
+                            android:id="@+id/startt"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="3dp"
+                            android:gravity="center_vertical"
+                            android:text="Select Start Time"
+                            android:textColor="@android:color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shapewhitebackground"
+                        android:onClick="endTime">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="8dp"
+
+                            app:srcCompat="@drawable/ic_access_time_black_24dp" />
+
+                        <TextView
+                            android:id="@+id/endt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center_vertical"
+                            android:text="Select End Time"
+                            android:textColor="@android:color/black" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <ImageButton
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="90dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="90dp"
+                    android:background="@drawable/shapewhitebackground"
+                    android:backgroundTint="#93C45B"
+                    android:onClick="onClickFindCarButton"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/findcarbutton" />
+
+
+
+
+            </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/bookingstatus"
+                app:layout_constraintTop_toBottomOf="@+id/linear"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+
+                android:background="@drawable/backgroung">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Booking status"
+                                    android:layout_gravity="center_horizontal"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"/>
+
+
+                    <ImageView
+                        android:id="@+id/carimage"
+                        android:layout_width="150dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="120dp"
+                        android:layout_weight="0.9"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/hundaiimage" />
+                    <TextView
+                        android:id="@+id/carname"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Car name"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="10dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1.2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="2dp"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@drawable/petrol" />
+
+                        <TextView
+                            android:id="@+id/fueltype"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="2dp"
+                            android:text="Petrol"
+                            android:textColor="#fff" />
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            app:srcCompat="@drawable/luggage" />
+
+                        <TextView
+                            android:id="@+id/geartype"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="2dp"
+                            android:text="Automatic"
+                            android:textColor="#fff" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="2dp"
+                            android:scaleType="centerInside"
+                            android:tint="#fff"
+                            app:srcCompat="@drawable/seat" />
+
+                        <TextView
+                            android:id="@+id/totalseat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:text="2 Seat"
+                            android:textColor="#fff" />
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="28dp"
+                            android:layout_height="29dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/gear" />
+
+                        <TextView
+                            android:id="@+id/baggage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="2dp"
+                            android:text="3 Baggage"
+                            android:textColor="#fff"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="36dp"
+                        android:layout_marginTop="10dp"
+
+                        android:text="Start Date and Time"
+                        android:textColor="#fff"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="2dp"
+                            android:scaleType="centerInside"
+                            android:tint="#fff"
+                            app:srcCompat="@drawable/calender" />
+
+                        <TextView
+                            android:id="@+id/startdate"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:hint="10/12/2020 00:00"
+                            android:textColor="#fff" />
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/starttime"-->
+<!--                            android:layout_width="60dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center_horizontal|center_vertical"-->
+<!--                            android:gravity="center"-->
+<!--                            android:hint="9:00 AM"-->
+<!--                            android:textColor="#fff" />-->
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="36sp"
+                        android:layout_marginTop="5dp"
+                        android:text="End Date and Time"
+                        android:textColor="#fff"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginRight="2dp"
+                            android:scaleType="centerInside"
+                            android:tint="#fff"
+                            app:srcCompat="@drawable/calender" />
+
+                        <TextView
+                            android:id="@+id/enddate"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:hint="10/11/2020"
+                            android:textColor="#fff" />
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/endtime"-->
+<!--                            android:layout_width="60dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center_horizontal|center_vertical"-->
+<!--                            android:layout_marginLeft="2dp"-->
+<!--                            android:gravity="center"-->
+<!--                            android:hint="9:00 AM"-->
+<!--                            android:textColor="#fff" />-->
+                    </LinearLayout>
+
+<!--                    <Button-->
+<!--                        android:paddingLeft="25dp"-->
+<!--                        android:paddingRight="25dp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text=" Booked "-->
+<!--                        android:background="@drawable/redbutton"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_gravity="center_horizontal"/>-->
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/backgroung">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/senitization" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="10dp"
+                                android:src="@drawable/group1" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="10dp"
+                                android:src="@drawable/group2" />
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/offer_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/backgroung"
+                        tools:listitem="@layout/list_of_guidlines" />
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/backgroung"
+                        android:padding="12dp">
+
+                        <LinearLayout
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selfie"
+                            android:orientation="horizontal">
+
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+
+
+
+                </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+        </LinearLayout>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

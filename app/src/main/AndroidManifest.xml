@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="my.awesome.tooros">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+
+        android:hardwareAccelerated="true"
+
+        android:usesCleartextTraffic="true">
+
+
+        <activity android:name=".ProfiledocActivity"></activity>
+        <activity android:name=".CancellationPolicy" />
+        <activity android:name=".AboutUs" />
+        <activity android:name=".ForgetPassword" />
+        <activity android:name=".newpassword" />
+        <activity android:name=".Resetpassword" />
+        <activity android:name=".BookingHistory" />
+        <activity android:name=".PdfViewActivity" />
+        <activity android:name=".TermsAndCondition" />
+        <activity android:name=".HelpAndSupport" />
+        <activity android:name=".Profile" />
+        <activity android:name=".ThankYou" />
+        <activity android:name=".OtpVerification" />
+        <activity android:name=".PaymentPage" />
+        <activity android:name=".CarBooking" />
+        <activity android:name=".Signup" />
+        <activity android:name=".Login" />
+        <activity android:name=".Guidlines_adapter" />
+        <activity android:name=".LeaseAgreement" />
+        <activity android:name=".Guidlines_model" />
+        <activity android:name=".PolicyActivity" />
+        <activity android:name=".CitySelectionActivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_live_0u0Ji8bgGyLn2A" />
+        <!--            android:value="rzp_test_0g1YxZ60ZH47uN" />-->
+
+
+
+
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/CheckoutTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <data
+                    android:host="rzp.io"
+                    android:scheme="io.rzp" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="rzp.device_token.share" />
+            </intent-filter>
+        </receiver>
+
+
+
+
+
+    </application>
+
+</manifest>

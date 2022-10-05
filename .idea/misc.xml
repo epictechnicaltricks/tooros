@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/drawable/redbutton.xml" value="0.104" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/drawable/redbutton2.xml" value="0.104" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/drawable/redbutton3.xml" value="0.104" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/drawable/shapewhitebackground.xml" value="0.1" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_about_us.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_booking_history.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_cancellation_policy.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_car_booking.xml" value="0.25" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_city_selection.xml" value="0.1" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_help_and_support.xml" value="0.25" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_main.xml" value="0.21" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_model_bookinghistory.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_newpassword.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_otp_verification.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_payment_page.xml" value="0.25" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_pdf_view.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_policy.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_profile.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_profiledoc.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_resetpassword.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_signup.xml" value="0.22" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_terms_and_condition.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_thank_you.xml" value="0.16" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/activity_vla_viewmore.xml" value="0.1717948717948718" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/bookcus.xml" value="0.2" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/bookingstatus.xml" value="0.25" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/carbooking_layout.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/carnooking.xml" value="0.21" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/city.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/cus_spinner.xml" value="0.33" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/item_booking.xml" value="0.16" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/list_of_guidlines.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/navheader.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/offer.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/rating.xml" value="0.33" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/selectcity.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/terms_app.xml" value="0.1717948717948718" />
+        <entry key="..\:/Users/RAM/Downloads/Tooros/Tooros-car-rental-app-/app/src/main/res/layout/vla_app.xml" value="0.1717948717948718" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
