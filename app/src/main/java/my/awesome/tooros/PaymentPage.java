@@ -23,7 +23,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -34,7 +33,6 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Objects;
@@ -43,7 +41,7 @@ import java.util.Objects;
 
 public class   PaymentPage<online> extends AppCompatActivity implements PaymentResultListener {
     TextView gst,total,basefair,coupondiscount,securitycharges,picupcharges,weekdaychages,weekendcharges,
-            startdate,enddate,timeduration,carname,startt,endt,geartype,fuel;
+            BACK,discount_symbol_rupee,startdate,enddate,timeduration,carname,startt,endt,geartype,fuel;
     ImageView carimage;
     EditText Couponcode;
     Button book,apply;
@@ -91,7 +89,8 @@ String HttpURL = "https://tooros.in/api/api.php";
         setContentView(R.layout.activity_payment_page);
 
         view = findViewById(android.R.id.content);
-
+BACK = findViewById(R.id.back);
+        discount_symbol_rupee = findViewById(R.id.discount_rupe_symbol);
         startdate=findViewById(R.id.startdate);
         enddate=findViewById(R.id.enddate);
         carimage=findViewById(R.id.carimage);
@@ -154,7 +153,10 @@ String HttpURL = "https://tooros.in/api/api.php";
 
 
 
+BACK.setOnClickListener(view -> {
 
+    finish();
+});
 
 
 
@@ -544,17 +546,27 @@ String HttpURL = "https://tooros.in/api/api.php";
 
 
                         if (couponstatus.equals("Invalid Coupon Code")) {
+
+                            discount_symbol_rupee.setText("₹");
+
                             Snackbar.make(view, "Invalid Coupon Code !!", Snackbar.LENGTH_LONG)
                                     .setActionTextColor(getResources().getColor(android.R.color.holo_green_dark))
                                     .show();
                         } else if(Float.parseFloat(discountpercentage)>0) {
+
+                            discount_symbol_rupee.setText("- ₹");
+
                             Snackbar.make(view, "" + discountpercentage + "% discount added..", Snackbar.LENGTH_LONG)
                                     .setActionTextColor(getResources().getColor(android.R.color.holo_green_dark))
                                     .show();
                         }else if(couponstatus.equals("")){
 
+                            discount_symbol_rupee.setText("₹");
                         }
                         else{
+
+                            discount_symbol_rupee.setText("₹");
+
                             Snackbar.make(view, couponstatus, Snackbar.LENGTH_LONG)
                                     .setActionTextColor(getResources().getColor(android.R.color.holo_green_dark))
                                     .show();
@@ -566,6 +578,7 @@ String HttpURL = "https://tooros.in/api/api.php";
 
                         weekendprice = "" + (int) Float.parseFloat(weekend_rs);
                         basefair.setText("" + (int) (Float.parseFloat(weekdays_rs) + Float.parseFloat(weekend_rs)));
+
 
                       M_weekdays_hr = Float.parseFloat(weekdays_hr) ;
                       M_weekend_hr =  Float.parseFloat(weekend_hr) ;
@@ -724,6 +737,10 @@ String HttpURL = "https://tooros.in/api/api.php";
                     String jsonInputString =
                                     "{\"method\":\"bookCab\"," +
                                     "\"user_id\":\"" + userid + "\"," +
+
+                                            "\"discAmt\":\"" + coupondiscount.getText() + "\"," +
+                                            "\"rentAmt\":\"" + basefair.getText() + "\"," +
+
                                     "\"car_id\":\"" + car_id +
                                     "\",\"city\":\""+ city_id + "\"," +
                                     "\"pickup_date\":\"" + stdate +
@@ -735,8 +752,11 @@ String HttpURL = "https://tooros.in/api/api.php";
                                     "\"name\":\"" + name +
                                     "\",\"mobile\":\"" +mobile+
                                     "\",\"email\":\"" +email+"\"," +
-                                    "\"message\":\"api testing\",\"coupon\":\"\"," +
-                                    "\"dlno\":\"" +dlno+
+                                    "\"message\":\"api testing\"," +
+                                            "\"coupon\":\"\"," +
+
+
+                                            "\"dlno\":\"" +dlno+
                                     "\",\"dob\":\"" +dob+
                                     "\",\"security\":\" \"}";
 //

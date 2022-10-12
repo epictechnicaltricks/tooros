@@ -27,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -1108,7 +1107,9 @@ final TextView amt = (TextView) inflate.findViewById(R.id.amt);
             if (monthdif <= 0) {
             if(yeardif<=0) {
 
-                dialog("Select valid  date to drop !!"+yeardif+"\n\n"+monthdif+"\n\n"+daydif);
+                dialog("Select valid date to drop !!");
+
+                //dialog("Select valid  date to drop !!"+yeardif+"\n\n"+monthdif+"\n\n"+daydif);
 
             } else { chackDeliveryType(); }
             } else {

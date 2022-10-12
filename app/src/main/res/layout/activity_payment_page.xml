@@ -315,34 +315,39 @@
 
                 <TextView
                     android:id="@+id/textView23"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Coupon Discount"
-                    android:textColor="#fff"
-                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
                 <LinearLayout
                     android:orientation="horizontal"
+                    android:gravity="center"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/couponcode"
-                        android:layout_width="208dp"
+                        android:layout_width="match_parent"
                         android:layout_height="37dp"
                         android:layout_marginLeft="15dp"
-
+                        android:layout_weight="1"
                         android:background="@drawable/redbutton"
                         android:gravity="center_vertical"
-                        android:hint="Enter Coupon Code"
+
+                        android:hint=" Enter Coupon Code"
                         android:paddingLeft="6dp"
                         />
 
                     <Button
                         android:textAllCaps="false"
                         android:id="@+id/apply"
+                        android:layout_marginRight="15dp"
                         android:layout_width="124dp"
                         android:layout_height="37dp"
                         android:layout_marginLeft="10dp"
@@ -365,10 +370,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:text="Pricing"
-                    android:textColor="#fff"
-                    android:textSize="18sp"
+                    android:textColor="#FFFDFD"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -501,7 +506,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:id="@+id/discount_rupe_symbol"
                         android:layout_marginTop="4dp"
                         android:text="₹"
                         android:textColor="#fff"
@@ -706,6 +711,7 @@
                         android:onClick="vla"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="25dp"
                         android:text="Vehicle Lease Agreement with host"
@@ -722,21 +728,37 @@
             </LinearLayout>
 
             <Button
-                android:textAllCaps="false"
-                android:textColor="@color/ic_launcher_background"
                 android:id="@+id/book"
                 android:layout_width="173dp"
-                android:layout_height="45dp"
+                android:layout_height="44dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/redbutton"
                 android:paddingLeft="4dp"
                 android:paddingTop="2dp"
                 android:paddingRight="4dp"
-                android:paddingBottom="2dp"
+                android:paddingBottom="0dp"
                 android:text="Book Now"
+                android:textAllCaps="false"
+
+                android:textColor="@color/ic_launcher_background"
                 android:textSize="25sp" />
+
+
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp"
+                android:text="Back"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
     </ScrollView>
