@@ -861,6 +861,7 @@ try {
 
         if (today.equals(saved_date) || nextDropDay < c_exactDay || nextDropMonth < c_exactMonth ) {
             cus_rate("https://play.google.com/store/apps/details?id=my.awesome.tooros");
+
            // Util.showMessage(getApplicationContext(), "Show rate....");
 
 

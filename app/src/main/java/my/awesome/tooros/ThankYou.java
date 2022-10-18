@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,10 +12,12 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -124,12 +127,75 @@ public class ThankYou extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-           Intent in = new Intent();
-            in.setClass(this,CitySelectionActivity.class);
-           // in.putExtra("rate","true");
+
+
+        cus_rate("https://play.google.com/store/apps/details?id=my.awesome.tooros");
+
+
+
+    }
+
+
+
+
+
+    private void cus_rate(String open_link) {
+        final AlertDialog dialog3 = new AlertDialog.Builder(this).create();
+        View inflate = getLayoutInflater().inflate(R.layout.rating,null);
+
+        dialog3.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog3.setView(inflate);
+
+        final TextView title = inflate.findViewById(R.id.title_cus_dia);
+        final TextView rate = (TextView) inflate.findViewById(R.id.rate);
+        final TextView later = (TextView) inflate.findViewById(R.id.later);
+				/*TextView done  = (TextView) inflate.findViewById(R.id.done);
+TextView close  = (TextView) inflate.findViewById(R.id.close);
+final TextView amt = (TextView) inflate.findViewById(R.id.amt);
+*/
+        final LinearLayout bg = (LinearLayout) inflate.findViewById(R.id.bg);
+
+
+
+
+        dialog3.setCancelable(false);
+
+        title.setText("Rate us your experience with Tooros !");
+
+        later.setOnClickListener(view -> {
+
+            Intent in = new Intent();
+            in.setClass(getApplicationContext(),CitySelectionActivity.class);
+            // in.putExtra("rate","true");
             startActivity(in);
             finish();
+        });
+
+
+        rate.setOnClickListener(_view -> {
+            if(!open_link.equals("")){
+
+
+                //it will rest the drop date after user click the
+
+                // rate us button
+
+                Intent in = new Intent();
+                in.setAction(Intent.ACTION_VIEW);
+                in.setData(Uri.parse(open_link));
+                startActivity(in);
+
+                dialog3.dismiss();
+            }
+
+        });
+        dialog3.show();
     }
+
+
+
+
+
     public void getInvoice(final String method,final String booking_id){
 
         class UserLoginClass extends AsyncTask<String,Void,String> {

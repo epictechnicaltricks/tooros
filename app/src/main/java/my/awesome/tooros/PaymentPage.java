@@ -752,13 +752,10 @@ BACK.setOnClickListener(view -> {
                                     "\"name\":\"" + name +
                                     "\",\"mobile\":\"" +mobile+
                                     "\",\"email\":\"" +email+"\"," +
-                                    "\"message\":\"api testing\"," +
-                                            "\"coupon\":\"\"," +
-
-
-                                            "\"dlno\":\"" +dlno+
+                                    "\"message\":\"book from android app\"," +
+                                            "\"coupon\":\""+Couponcode.getText()+"\"," + "\"dlno\":\"" +dlno+
                                     "\",\"dob\":\"" +dob+
-                                    "\",\"security\":\" \"}";
+                                    "\",\"security\":\" "+securitycharges.getText()+"\"}";
 //
 
 //
