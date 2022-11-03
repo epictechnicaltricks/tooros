@@ -1,33 +1,24 @@
 package my.awesome.tooros;
 
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.play.core.appupdate.AppUpdateInfo;
-import com.google.android.play.core.appupdate.AppUpdateManager;
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
-import com.google.android.play.core.install.InstallStateUpdatedListener;
-import com.google.android.play.core.install.model.AppUpdateType;
-import com.google.android.play.core.install.model.InstallStatus;
-import com.google.android.play.core.install.model.UpdateAvailability;
-import com.google.android.play.core.tasks.Task;
-import com.google.gson.Gson;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -57,11 +48,13 @@ public class SplashActivity extends AppCompatActivity implements InAppUpdateMana
 
 
 
+    private static final String CHANNEL_ID = "101";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
 
         _transparentStatusAndNavigation();
 
@@ -88,7 +81,7 @@ public class SplashActivity extends AppCompatActivity implements InAppUpdateMana
 
         inAppUpdateManager = InAppUpdateManager.Builder(this, REQ_CODE_VERSION_UPDATE)
                 .resumeUpdates(true) // Resume the update, if the update was stalled. Default is true
-                .mode(Constants.UpdateMode.FLEXIBLE)
+                .mode(Constants.UpdateMode.IMMEDIATE)
 
                 // default is false. If is set to true you,
                 // have to manage the user confirmation when
@@ -101,11 +94,67 @@ public class SplashActivity extends AppCompatActivity implements InAppUpdateMana
 
 
 
-
+        createNotificationChannel();
+        getToken();
+        subscribe_to_topic();
 
 
     }
 
+////////////////// FIREBASE FCM //////////////
+
+
+    private void getToken() {
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull com.google.android.gms.tasks.Task<String> task) {
+                if(!task.isSuccessful()){
+
+                    Log.d("FCM FIREBASE", "onComplete: Failed to get the Token");
+
+                }
+
+                //Token
+                String token = task.getResult();
+                Log.d("FCM FIREBASE", "onComplete: " + token);
+            }
+
+        });
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "firebaseNotifChannel";
+            String description = "Receve Firebase notification";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+
+
+    private void subscribe_to_topic(){
+
+        // this topic on php file project/notify.php then /topic/all
+
+        FirebaseMessaging.getInstance().subscribeToTopic("all").addOnCompleteListener(task -> {
+
+            String msg = "Subscribed";
+            if (!task.isSuccessful()) {
+                msg = "Subscribe failed";
+            }
+            Log.d("FCM FIREBASE", msg);
+
+            Toast.makeText(SplashActivity.this, msg, Toast.LENGTH_SHORT).show();
+        });
+
+    }
+
+
+//////////////////////////////////// FIREBASE FCM ///////
 
 
 
