@@ -148,7 +148,7 @@ public class SplashActivity extends AppCompatActivity implements InAppUpdateMana
             }
             Log.d("FCM FIREBASE", msg);
 
-            Toast.makeText(SplashActivity.this, msg, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(SplashActivity.this, msg, Toast.LENGTH_SHORT).show();
         });
 
     }

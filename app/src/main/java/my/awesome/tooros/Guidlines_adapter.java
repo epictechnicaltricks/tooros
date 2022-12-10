@@ -33,7 +33,7 @@ Context context;
     @Override
     public void onBindViewHolder(@NonNull Guidlines_adapter.viewHolder holder, int position) {
    Guidlines_model guidlines_model1=guidlines_models.get(position);
-       // Picasso.with(context).load("https://i.imgur.com/tGbaZCY.jpg").fit().centerCrop().into(holder.imageView);
+       //Picasso.with(context).load("https://i.imgur.com/tGbaZCY.jpg").fit().centerCrop().into(holder.imageView);
     }
 
     @Override

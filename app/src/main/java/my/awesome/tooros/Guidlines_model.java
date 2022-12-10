@@ -7,9 +7,12 @@ public class Guidlines_model {
 String imgurl;
 
     public Guidlines_model() {
+
+
     }
 
     public Guidlines_model(String imgurl) {
+
         this.imgurl = imgurl;
     }
 

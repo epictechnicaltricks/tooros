@@ -19,7 +19,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,6 +47,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -102,9 +103,10 @@ String HttpURL = "https://tooros.in/api/api.php";
     ArrayList<Guidlines_model> guidlines_models = new ArrayList<Guidlines_model>();
 Guidlines_adapter guidlines_adapter;
 //
-RecyclerView offer_recycler;
-    ArrayList<Guidlines_model> offer_model_arraylist = new ArrayList<Guidlines_model>();
-    Offer_adapter offer_adapter;
+
+    RecyclerView offer_recycler;
+    //ArrayList<Guidlines_model> offer_model_arraylist = new ArrayList<Guidlines_model>();
+  //  Offer_adapter offer_adapter;
 
  //
  int hour=0,min,hour1=0,min1,daydif=0,monthdif=0,yeardif=0;
@@ -150,6 +152,12 @@ RecyclerView offer_recycler;
     private SharedPreferences sh;
 
 
+    private RequestNetwork offer_api;
+    private RequestNetwork.RequestListener _offer_api_listener;
+
+    private HashMap<String, Object> offer_api_map = new HashMap<>();
+    private ArrayList<HashMap<String, Object>> offer_results = new ArrayList<>();
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -158,6 +166,62 @@ RecyclerView offer_recycler;
         startime=findViewById(R.id.startt);
         endtime=findViewById(R.id.endt);
         sh = getSharedPreferences("sh", Activity.MODE_PRIVATE);
+
+
+        offer_api = new RequestNetwork(this);
+
+
+
+        _offer_api_listener = new RequestNetwork.RequestListener() {
+            @Override
+            public void onResponse(String tag, String response, HashMap<String, Object> responseHeaders) {
+                try {
+                    offer_api_map.clear();
+                    offer_results.clear();
+                    if (response.contains("200")) {
+                        offer_api_map = new Gson().fromJson(response, new TypeToken<HashMap<String, Object>>(){}.getType());
+                        // must add resultSet
+                        //" list " is a String datatype
+                       String  list2 = (new Gson()).toJson(offer_api_map.get("result"), new TypeToken<ArrayList<HashMap<String, Object>>>(){}.getType());
+                        offer_results = new Gson().fromJson(list2, new TypeToken<ArrayList<HashMap<String, Object>>>(){}.getType());
+                        // refresh the list or recycle or grid
+
+                       // Toast.makeText(CitySelectionActivity.this, list2, Toast.LENGTH_SHORT).show();
+
+                        offer_recycler.setAdapter(new offer_recyclerAdapter(offer_results));
+                        offer_recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                        offer_recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL, false));
+
+                        if(offer_results.size()==0) {
+                            offer_recycler.setVisibility(View.GONE);
+
+                        }else { offer_recycler.setVisibility(View.VISIBLE); }
+
+
+                    }else {
+
+                        offer_recycler.setVisibility(View.GONE);
+                    }
+                } catch(Exception e) {
+                    Util.showMessage(getApplicationContext(), "Error offer API ");
+                }
+
+            }
+
+            @Override
+            public void onErrorResponse(String tag, String message) {
+
+                Toast.makeText(CitySelectionActivity.this, "No internet!", Toast.LENGTH_SHORT).show();
+
+            }
+        };
+
+        offer_api.startRequestNetwork(RequestNetworkController.GET,
+                HttpURL+"?method=activeoffers",
+                "no tag",
+                _offer_api_listener);
+
+
 
         delivery_type_spinner = findViewById(R.id.district);
 
@@ -297,7 +361,7 @@ RecyclerView offer_recycler;
         }
 
         ServicesFunction("getAlllocation");  //add service name
-        gettingOffersFunction("getAlloffer");
+       // gettingOffersFunction("getAlloffer");
 
         if(userid!=null){
             final int res=0;
@@ -518,11 +582,11 @@ RecyclerView offer_recycler;
 
 
 
-        offer_adapter=new Offer_adapter(offer_model_arraylist,CitySelectionActivity.this);
-        offer_recycler.setAdapter(offer_adapter);
+      //  offer_adapter=new Offer_adapter(offer_model_arraylist,CitySelectionActivity.this);
+      //  offer_recycler.setAdapter(offer_adapter);
 
-        LinearLayoutManager linearLayoutManager1=new LinearLayoutManager(CitySelectionActivity.this,RecyclerView.HORIZONTAL,false);
-        offer_recycler.setLayoutManager(linearLayoutManager1);
+      //  LinearLayoutManager linearLayoutManager1=new LinearLayoutManager(CitySelectionActivity.this,RecyclerView.HORIZONTAL,false);
+       // offer_recycler.setLayoutManager(linearLayoutManager1);
 
 
 
@@ -986,6 +1050,7 @@ final TextView amt = (TextView) inflate.findViewById(R.id.amt);
 
 
 
+/*
     public void   gettingOffersFunction(String getAllOffers) {
 //we have to fetch here
         class OfferClass  extends AsyncTask<String,Void,String> {
@@ -1080,6 +1145,7 @@ final TextView amt = (TextView) inflate.findViewById(R.id.amt);
 
     }
 
+*/
 
 
     private void updateLabel() {
@@ -1399,11 +1465,86 @@ private void chackDeliveryType(){
         timePickerDialog.show();
 
 
+    }
+
+
+    public class offer_recyclerAdapter extends RecyclerView.Adapter<offer_recyclerAdapter.ViewHolder> {
+        ArrayList<HashMap<String, Object>> _data;
+        public offer_recyclerAdapter(ArrayList<HashMap<String, Object>> _arr) {
+            _data = _arr;
+        }
+
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater _inflater = (LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View _v = _inflater.inflate(R.layout.list_of_guidlines, null);
+            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            _v.setLayoutParams(_lp);
+            return new ViewHolder(_v);
+        }
+
+        @Override
+        public void onBindViewHolder(ViewHolder _holder, final int _position) {
+            View _view = _holder.itemView;
+
+            final androidx.cardview.widget.CardView cardview1 = _view.findViewById(R.id.cardview1);
+            final LinearLayout linear1 = _view.findViewById(R.id.linear1);
+            final ImageView offerimage = _view.findViewById(R.id.offerimage);
+            final TextView percent = _view.findViewById(R.id.percent);
+            final TextView code = _view.findViewById(R.id.code);
+
+
+
+            try{
+
+
+                percent.setText(Objects.requireNonNull(offer_results.get(_position).get("discount"))+" off");
+                code.setText("CODE : "+Objects.requireNonNull(offer_results.get(_position).get("promo_code")).toString());
 
 
 
 
 
+                String img_url = Objects.requireNonNull(offer_results.get(_position).get("promoimg")).toString();
+
+                Picasso.with(getApplicationContext())
+                        .load(img_url)
+                        .fit()
+                        .centerCrop()
+                        .into(offerimage);
+
+
+
+				/*ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+				ClipData clip = ClipData.newPlainText("Copied Text", img_url );
+				clipboard.setPrimaryClip(clip);
+
+				Log.d("img_obj", img_url);*/
+
+
+
+            }catch (Exception e)
+            {
+                //showMessage("887 line "+e.toString());
+            }
+
+
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return _data.size();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder{
+            public ViewHolder(View v){
+                super(v);
+            }
+        }
 
     }
+
+
+
 }
