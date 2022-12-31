@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_height="200dp">
+    android:layout_height="250dp">
 
 
 
@@ -21,7 +21,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:alpha="0.5"
+                android:alpha="1"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="10dp"
@@ -51,6 +51,7 @@
 
 
         <LinearLayout
+            android:visibility="gone"
              android:id="@+id/bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

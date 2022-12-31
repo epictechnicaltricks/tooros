@@ -1478,7 +1478,7 @@ private void chackDeliveryType(){
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater _inflater = (LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View _v = _inflater.inflate(R.layout.list_of_guidlines, null);
-            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             _v.setLayoutParams(_lp);
             return new ViewHolder(_v);
         }
